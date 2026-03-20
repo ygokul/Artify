@@ -1,0 +1,2 @@
+# This file ensures the database folder is tracked in git
+# while the actual data files (users.json) are ignored 
