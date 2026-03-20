@@ -1,4 +1,4 @@
-# MongoDB Setup Guide
+﻿# MongoDB Setup Guide
 
 ## Overview
 The Vibe application now runs entirely on MongoDB. All JSON database files have been removed and the application is fully integrated with MongoDB Atlas.
@@ -36,8 +36,10 @@ The Vibe application now runs entirely on MongoDB. All JSON database files have 
 ## MongoDB Configuration
 
 ### Connection String
+> Do not store credentials in source files. Use environment variables or secrets manager.
+
 ```
-mongodb+srv://akda2003a:qaNXbpxQopkkn5YU@cluster0.mreqm1w.mongodb.net/vibeapp?retryWrites=true&w=majority&appName=Cluster0
+mongodb+srv://<username>:<password>@cluster0.mreqm1w.mongodb.net/vibeapp?retryWrites=true&w=majority&appName=Cluster0
 ```
 
 ### Database Name
@@ -172,21 +174,21 @@ MONGODB_URI=mongodb+srv://akda2003a:qaNXbpxQopkkn5YU@cluster0.mreqm1w.mongodb.ne
 
 ## What Was Removed
 
-- ❌ All JSON database files (`database/*.json`)
-- ❌ Migration scripts (no longer needed)
-- ❌ JSON file references in code
-- ❌ Synchronous database operations
-- ❌ File-based database operations
+- âŒ All JSON database files (`database/*.json`)
+- âŒ Migration scripts (no longer needed)
+- âŒ JSON file references in code
+- âŒ Synchronous database operations
+- âŒ File-based database operations
 
 ## What's Now Available
 
-- ✅ Full MongoDB integration
-- ✅ Async database operations
-- ✅ Proper error handling
-- ✅ Scalable architecture
-- ✅ Real-time features support
-- ✅ Data relationships
-- ✅ Performance optimizations
-- ✅ Production-ready setup
+- âœ… Full MongoDB integration
+- âœ… Async database operations
+- âœ… Proper error handling
+- âœ… Scalable architecture
+- âœ… Real-time features support
+- âœ… Data relationships
+- âœ… Performance optimizations
+- âœ… Production-ready setup
 
-The application is now fully MongoDB-powered and ready for production use! 🚀 
+The application is now fully MongoDB-powered and ready for production use! ðŸš€ 
