@@ -1,11 +1,10 @@
 import mongoose from 'mongoose';
-import apiKeys from '@/config/api-keys.json';
 
-// Use hardcoded configuration from api-keys.json
-const MONGODB_URI = apiKeys.mongodb.uri;
+// Use environment variable for MongoDB URI
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/artify';
 
 if (!MONGODB_URI) {
-  throw new Error('MongoDB URI is not defined in config');
+  throw new Error('Please define the MONGODB_URI environment variable inside .env or Render dashboard');
 }
 
 // Global variable to store the cached connection
