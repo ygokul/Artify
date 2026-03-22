@@ -10,14 +10,10 @@ services:
     
     # Environment
     envVars:
-      - key: NODE_ENV
-        value: production
       - key: NEXT_PUBLIC_API_URL
         value: https://artify-${RENDER_GIT_COMMIT:0:7}.onrender.com
       - key: PORT
         value: "3000"
-      - key: SKIP_ENV_VALIDATION
-        value: "true"
     
     # Auto-deploy on push
     autoDeploy: true

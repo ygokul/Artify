@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
-import { Button } from '@/components/ui/button';
+
+export const dynamic = 'force-dynamic';
 
 export default function Error({
   error,
@@ -11,15 +12,39 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
     console.error(error);
   }, [error]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-background">
-      <h1 className="text-4xl font-bold mb-4">Oops! Something went wrong</h1>
-      <p className="text-lg text-muted-foreground mb-8">{error.message}</p>
-      <Button onClick={() => reset()}>Try again</Button>
-    </div>
+    <html lang="en">
+      <body>
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '100vh',
+          backgroundColor: '#f5f5f5',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+        }}>
+          <h1 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>Oops! Something went wrong</h1>
+          <p style={{ fontSize: '1rem', color: '#666', marginBottom: '2rem' }}>{error.message}</p>
+          <button
+            onClick={() => reset()}
+            style={{
+              padding: '0.5rem 1rem',
+              backgroundColor: '#000',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '0.25rem',
+              cursor: 'pointer',
+              fontSize: '1rem',
+            }}
+          >
+            Try again
+          </button>
+        </div>
+      </body>
+    </html>
   );
 }
