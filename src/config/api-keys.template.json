@@ -1,0 +1,11 @@
+{
+  "stability": {
+    "apiKey": "YOUR_STABILITY_API_KEY_HERE"
+  },
+  "mongodb": {
+    "uri": "YOUR_MONGODB_URI_HERE"
+  },
+  "google": {
+    "genaiApiKey": "YOUR_GOOGLE_GENAI_API_KEY_HERE"
+  }
+}

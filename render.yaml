@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: artify
+    runtime: node
+    plan: standard
+    
+    # Build configuration
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    
+    # Environment
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_API_URL
+        value: https://artify-${RENDER_GIT_COMMIT:0:7}.onrender.com
+      - key: PORT
+        value: "3000"
+    
+    # Auto-deploy on push
+    autoDeploy: true
+    
+    # Health check
+    healthCheckPath: /
+    
+    # Disk and resources
+    disk:
+      name: artify-data
+      mountPath: /var/data
+      sizeGB: 10
+    
+    # Scaling
+    numInstances: 1
+    
+    # Timeouts
+    buildTimeoutSeconds: 1800
+    startTimeoutSeconds: 300
+    
+    # Redeploy settings
+    maxShutdownDelay: 30

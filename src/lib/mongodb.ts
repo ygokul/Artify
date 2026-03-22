@@ -1,11 +1,11 @@
 import mongoose from 'mongoose';
+import apiKeys from '@/config/api-keys.json';
 
-// Try Atlas first, then fall back to local if available
-const ATLAS_URI = 'mongodb://localhost:27017/artify';
-const MONGODB_URI = process.env.MONGODB_URI || ATLAS_URI;
+// Use hardcoded configuration from api-keys.json
+const MONGODB_URI = apiKeys.mongodb.uri;
 
 if (!MONGODB_URI) {
-  throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
+  throw new Error('MongoDB URI is not defined in config');
 }
 
 // Global variable to store the cached connection

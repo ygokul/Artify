@@ -10,6 +10,7 @@
  */
 
 import { z } from 'zod';
+import apiKeys from '@/config/api-keys.json';
 
 const GenerateImageFromPromptInputSchema = z.object({
   prompt: z.string().describe('The text prompt to use to generate the image.'),
@@ -30,8 +31,10 @@ export async function generateImageFromPrompt(
 ): Promise<GenerateImageFromPromptOutput> {
   const parsedInput = GenerateImageFromPromptInputSchema.parse(input);
 
-  if (!process.env.STABILITY_API_KEY) {
-    throw new Error('STABILITY_API_KEY is not set');
+  const stabilityApiKey = apiKeys.stability.apiKey;
+
+  if (!stabilityApiKey) {
+    throw new Error('STABILITY_API_KEY is not configured');
   }
 
   const engineId = 'stable-diffusion-xl-1024-v1-0';
@@ -44,7 +47,7 @@ export async function generateImageFromPrompt(
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        Authorization: `Bearer ${process.env.STABILITY_API_KEY}`,
+        Authorization: `Bearer ${stabilityApiKey}`,
       },
       body: JSON.stringify({
         text_prompts: [
