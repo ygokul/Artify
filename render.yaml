@@ -16,6 +16,8 @@ services:
         value: https://artify-${RENDER_GIT_COMMIT:0:7}.onrender.com
       - key: PORT
         value: "3000"
+      - key: SKIP_ENV_VALIDATION
+        value: "true"
     
     # Auto-deploy on push
     autoDeploy: true

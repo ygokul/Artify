@@ -23,6 +23,11 @@ const nextConfig: NextConfig = {
     '@opentelemetry/exporter-jaeger',
     '@opentelemetry/sdk-node', 
   ],
+  distDir: '.next',
+  output: 'standalone',
+  experimental: {
+    isrMemoryCacheSize: 0,
+  },
 };
 
 export default nextConfig;
